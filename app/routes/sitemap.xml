@@ -2,7 +2,7 @@ import { json } from "@remix-run/node";
 
 export const loader = async () => {
   const urls = [
-    "<url><loc>https://kaynanwallen.tech/</loc></url>",
+    "<url><loc>https://kwconsultoria.tech/</loc></url>",
     ];
 
   return new Response(

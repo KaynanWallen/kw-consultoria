@@ -1,8 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import { ArrowRight, Code, Database, Globe, Layers, Menu } from "lucide-react";
-import { ProjectsSection } from "~/components/project-section";
-import { Skills } from "~/components/skills";
+import { ArrowRight, ChevronRight, Code, Database, Globe, Layers, LineChart, Menu, MessageSquare, Settings, Users } from "lucide-react";
+import ScrollToTop from "~/components/scroll-to-top";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
@@ -16,460 +15,885 @@ import ScrollToSection from "~/utils/scroll-to-section";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Kaynan Wallen" },
-    { name: "description", content: "Desenvolvedor Full Stack desde 2022, especializado em React.js, Node.js e TypeScript. Ajudo empresas a aumentar sua notoriedade digital com landing pages otimizadas." },
-    {name: 'keywords', content: 'Desenvolvedor Full Stack, React.js, Node.js, TypeScript, Next.js, APIs REST, Landing Pages, SEO, Tailwind CSS, MySQL, PostgreSQL, JavaScript, Docker, DevOps, CI/CD, Front-end, Back-end, Desenvolvimento Web, Programador'},
-    {name: "viewport", content: "width=device-width,initial-scale=1" }
+    { title: "KW Consultoria" },
+    {
+      name: "description",
+      content:
+        "KW Consultoria oferece soluções de software personalizadas, criando sistemas do zero e realizando manutenções, além de melhorar a imagem visual das empresas com designs modernos e eficientes.",
+    },
+    {
+      name: "keywords",
+      content:
+        "KW Consultoria, Desenvolvimento de Software, Criação de Sistemas, Manutenção de Sistemas, Melhoria Visual, Design de Sites, Consultoria de TI, Soluções Digitais, Desenvolvimento Web, Front-end, Back-end, React.js, Node.js, TypeScript, APIs REST, SEO, Tailwind CSS, MySQL, PostgreSQL, JavaScript, Docker, DevOps",
+    },
+    { name: "viewport", content: "width=device-width,initial-scale=1" },
   ];
 };
 
 export default function Index() {
+  const linkContact = "https://wa.me/5511969057943?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20KW%20Consultoria%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20posso%20impulsionar%20meu%20projeto%20com%20solu%C3%A7%C3%B5es%20tecnol%C3%B3gicas.%20Pode%20me%20passar%20mais%20detalhes%3F"
   return (
     <>
-      <ScrollToSection />
-      <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-violet-500/30">
-        <header className="fixed top-0 left-0 right-0 z-50 border-b border-zinc-800/50 backdrop-blur-md bg-zinc-950/80">
-          <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="/" className="text-xl font-bold tracking-tighter group">
-              <span className="inline-block transition-transform duration-300 group-hover:-translate-y-1">
-                K
-              </span>
-              <span className="inline-block transition-transform duration-300 group-hover:-translate-y-1 delay-[50ms]">
-                W
-              </span>
-              <span className="inline-block transition-transform duration-300 group-hover:-translate-y-1 delay-[100ms]">
-                .
-              </span>
-            </a>
+      <div className="min-h-screen bg-black text-white">
+        {/* Componentes de rolagem */}
+        <ScrollToTop />
+        <ScrollToSection />
 
-            <div className="hidden md:flex items-center gap-8">
-              <nav className="flex items-center gap-6">
-                <Link
-                  to="#home"
-                  className="text-sm hover:text-violet-400 transition-colors"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="#about"
-                  className="text-sm hover:text-violet-400 transition-colors"
-                >
-                  Sobre
-                </Link>
-                <Link
-                  to="#projects"
-                  className="text-sm hover:text-violet-400 transition-colors"
-                >
-                  Projetos
-                </Link>
-                <Link
-                  to="#skills"
-                  className="text-sm hover:text-violet-400 transition-colors"
-                >
-                  Habilidades
-                </Link>
-              </nav>
-
+        {/* Header/Navbar */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#333]">
+          <div className="container mx-auto py-4 px-4 flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-2">
+              <div className="h-10 w-10 bg-[#8A5CF7] rounded-md flex items-center justify-center">
+                <span className="font-bold text-xl text-white">KW</span>
+              </div>
+              <span className="font-bold text-xl">Consultoria</span>
+            </Link>
+            <nav className="hidden lg:flex items-center gap-8">
               <Link
-                to="https://wa.me/5511969057943?text=Ol%C3%A1%2C%20vim%20pelo%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20contratar%20seus%20servi%C3%A7os"
-                target="_blank"
+                to="/"
+                className="hover:text-[#8A5CF7] transition-colors relative group"
               >
-                <Button className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border-0">
-                  Contato
-                </Button>
+                Home
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8A5CF7] transition-all group-hover:w-full"></span>
               </Link>
+              <Link
+                to="#sobre"
+                className="hover:text-[#8A5CF7] transition-colors relative group"
+              >
+                Sobre
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8A5CF7] transition-all group-hover:w-full"></span>
+              </Link>
+              <Link
+                to="#servicos"
+                className="hover:text-[#8A5CF7] transition-colors relative group"
+              >
+                Serviços
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8A5CF7] transition-all group-hover:w-full"></span>
+              </Link>
+              <Link
+                to="#projetos"
+                className="hover:text-[#8A5CF7] transition-colors relative group"
+              >
+                Projetos
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8A5CF7] transition-all group-hover:w-full"></span>
+              </Link>
+              <Link
+                to="#clientes"
+                className="hover:text-[#8A5CF7] transition-colors relative group"
+              >
+                Clientes
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#8A5CF7] transition-all group-hover:w-full"></span>
+              </Link>
+            </nav>
+            <div className="flex items-center gap-4">
+              <Button className="hidden md:flex bg-transparent border border-[#8A5CF7] text-[#8A5CF7] hover:bg-[#8A5CF7]/10">
+                <Link to="#contato">Contato</Link>
+              </Button>
+              <Button className="bg-[#8A5CF7] hover:bg-[#7349E5] text-white">
+                <Link to={linkContact}>Orçamento</Link>
+              </Button>
+              <Button variant="ghost" size="icon" className="lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-menu"
+                >
+                  <line x1="4" x2="20" y1="12" y2="12" />
+                  <line x1="4" x2="20" y1="6" y2="6" />
+                  <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+              </Button>
             </div>
-
-            <button className="md:hidden text-zinc-400 hover:text-white transition-colors">
-              <Menu className="h-6 w-6" />
-            </button>
           </div>
         </header>
 
-        <main>
-          {/* Hero Section */}
-          <section id="home" className="min-h-screen flex items-center pt-20">
-            <div className="container mx-auto px-4">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <div className="inline-block rounded-full bg-zinc-800/50 px-3 py-1 text-sm text-zinc-400 backdrop-blur-sm">
-                    Olá, eu sou
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-full h-full">
+            <div className="absolute top-20 right-20 w-64 h-64 bg-[#8A5CF7]/20 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#8A5CF7]/10 rounded-full blur-3xl"></div>
+          </div>
+          <div className="container mx-auto px-4 relative">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <div className="inline-block px-4 py-1 rounded-full bg-[#1A1A1A] text-sm mb-6 border border-[#333]">
+                Transformando ideias em soluções digitais
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                Soluções de <span className="text-[#8A5CF7]">Software</span>{" "}
+                para impulsionar seu negócio
+              </h1>
+              <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                Desenvolvimento de landing pages, sistemas personalizados e
+                consultorias estratégicas para empresas que buscam inovação e
+                resultados.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-[#8A5CF7] hover:bg-[#7349E5] text-white h-14 px-8 text-base"
+                >
+                  <Link to={linkContact} className="flex items-center gap-2">
+                    Fale Comigo <ChevronRight size={18} />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-gray-700 hover:bg-[#1A1A1A] h-14 px-8 text-base">
+                <Link to="#servicos" className="flex items-center gap-2">
+                  Conheça os Serviços <ChevronRight size={18} />
+                </Link>
+              </Button>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              <div className="bg-gradient-to-br from-[#1A1A1A] to-[#252525] p-6 rounded-xl border border-[#333] hover:border-[#8A5CF7]/50 transition-all group">
+                <div className="h-14 w-14 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-6 group-hover:bg-[#8A5CF7]/30 transition-all">
+                  <Code size={24} className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Desenvolvimento Web</h3>
+                <p className="text-gray-400 mb-4">
+                  Landing pages e sistemas web personalizados com foco em
+                  conversão e experiência do usuário.
+                </p>
+                <Link
+                  to="#servicos"
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm group-hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-[#1A1A1A] to-[#252525] p-6 rounded-xl border border-[#333] hover:border-[#8A5CF7]/50 transition-all group">
+                <div className="h-14 w-14 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-6 group-hover:bg-[#8A5CF7]/30 transition-all">
+                  <Settings size={24} className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  Sistemas Personalizados
+                </h3>
+                <p className="text-gray-400 mb-4">
+                  Desenvolvimento e manutenção de sistemas que automatizam
+                  processos e aumentam a produtividade.
+                </p>
+                <Link
+                  to="#servicos"
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm group-hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </div>
+
+              <div className="bg-gradient-to-br from-[#1A1A1A] to-[#252525] p-6 rounded-xl border border-[#333] hover:border-[#8A5CF7]/50 transition-all group">
+                <div className="h-14 w-14 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-6 group-hover:bg-[#8A5CF7]/30 transition-all">
+                  <LineChart size={24} className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">
+                  Consultoria Estratégica
+                </h3>
+                <p className="text-gray-400 mb-4">
+                  Orientação em SEO, performance e otimização de processos para
+                  maximizar resultados.
+                </p>
+                <Link
+                  to="#servicos"
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm group-hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-20 flex justify-center">
+              <Link
+                to="#servicos"
+                className="flex items-center gap-2 text-gray-400 hover:text-[#8A5CF7] transition-colors animate-bounce"
+              >
+                <span>Role para baixo</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-chevron-down"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Serviços */}
+        <section id="servicos" className="bg-[#0A0A0A] py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Serviços Especializados
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Soluções completas para transformar sua presença digital e
+                otimizar seus processos de negócio.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="bg-[#1A1A1A] border-none p-6 hover:bg-[#252525] transition-colors">
+                <div className="h-12 w-12 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-4">
+                  <Code className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">
+                  Criação de Landing Pages
+                </h3>
+                <p className="text-gray-400 mb-4">
+                  Páginas otimizadas para conversão que capturam a atenção dos
+                  visitantes e geram leads qualificados.
+                </p>
+                <Link
+                  to="#contato"
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </Card>
+
+              <Card className="bg-[#1A1A1A] border-none p-6 hover:bg-[#252525] transition-colors">
+                <div className="h-12 w-12 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-4">
+                  <Settings className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Criação de Sistemas</h3>
+                <p className="text-gray-400 mb-4">
+                  Desenvolvimento de sistemas personalizados que automatizam
+                  processos e aumentam a eficiência do seu negócio.
+                </p>
+                <Link
+                  to={linkContact}
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </Card>
+
+              <Card className="bg-[#1A1A1A] border-none p-6 hover:bg-[#252525] transition-colors">
+                <div className="h-12 w-12 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-4">
+                  <Settings className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">
+                  Manutenção de Sistemas
+                </h3>
+                <p className="text-gray-400 mb-4">
+                  Suporte contínuo, atualizações e melhorias para manter seus
+                  sistemas funcionando perfeitamente.
+                </p>
+                <Link
+                  to={linkContact}
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </Card>
+
+              <Card className="bg-[#1A1A1A] border-none p-6 hover:bg-[#252525] transition-colors">
+                <div className="h-12 w-12 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center mb-4">
+                  <LineChart className="text-[#8A5CF7]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Consultorias</h3>
+                <p className="text-gray-400 mb-4">
+                  Orientação estratégica em SEO, performance e otimização de
+                  processos para impulsionar seu negócio.
+                </p>
+                <Link
+                  to={linkContact}
+                  className="text-[#8A5CF7] flex items-center gap-1 text-sm hover:underline"
+                >
+                  Saiba mais <ArrowRight size={14} />
+                </Link>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Button className="bg-[#8A5CF7] hover:bg-[#7349E5] text-white">
+                <Link to={linkContact} className="flex items-center gap-2">
+                  Solicitar Orçamento <ChevronRight size={16} />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Sobre */}
+        <section id="sobre" className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative h-[400px] rounded-xl overflow-hidden bg-[#1A1A1A] flex items-center justify-center order-2 md:order-1">
+                <div className="text-[#8A5CF7] text-[120px] font-bold opacity-20">
+                  KW
+                </div>
+              </div>
+              <div className="space-y-6 order-1 md:order-2">
+                <h2 className="text-3xl md:text-5xl font-bold">
+                  Sobre a KW Consultoria
+                </h2>
+                <p className="text-gray-400">
+                  Com anos de experiência em desenvolvimento de software, a KW
+                  Consultoria oferece soluções personalizadas para empresas que
+                  buscam inovação e eficiência.
+                </p>
+                <p className="text-gray-400">
+                  Especializado em desenvolvimento fullstack, SEO e consultoria
+                  para startups, trago um olhar estratégico para cada projeto,
+                  focando em resultados mensuráveis e crescimento sustentável.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-[#1A1A1A] p-4 rounded-lg">
+                    <div className="text-[#8A5CF7] text-3xl font-bold">2+</div>
+                    <div className="text-sm text-gray-400">
+                      Anos de experiência
+                    </div>
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
-                    Kaynan{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
-                      Wallen
-                    </span>
-                  </h1>
-                  <h2 className="text-2xl md:text-3xl text-zinc-400 font-light">
-                    Desenvolvedor{" "}
-                    <span className="relative inline-block">
-                      Fullstack
-                      <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-violet-500 to-indigo-500"></span>
-                    </span>
-                  </h2>
-                  <p className="text-zinc-400 max-w-lg">
-                    Criando experiências digitais inovadoras com foco em design
-                    e performance.
-                  </p>
-                  <div className="flex flex-wrap gap-4 pt-4">
-                    <Button className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border-0">
-                      Ver projetos <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <Link to={"#about"}>
-                      <Button
-                        variant="outline"
-                        className="border-zinc-500/10 text-zinc-300 hover:bg-zinc-800/50 bg-transparent hover:text-white"
-                      >
-                        Sobre mim
-                      </Button>
-                    </Link>
+                  <div className="bg-[#1A1A1A] p-4 rounded-lg">
+                    <div className="text-[#8A5CF7] text-3xl font-bold">15+</div>
+                    <div className="text-sm text-gray-400">
+                      Projetos entregues
+                    </div>
+                  </div>
+                  <div className="bg-[#1A1A1A] p-4 rounded-lg">
+                    <div className="text-[#8A5CF7] text-3xl font-bold">30+</div>
+                    <div className="text-sm text-gray-400">
+                      Clientes satisfeitos
+                    </div>
+                  </div>
+                  <div className="bg-[#1A1A1A] p-4 rounded-lg">
+                    <div className="text-[#8A5CF7] text-3xl font-bold">
+                      100%
+                    </div>
+                    <div className="text-sm text-gray-400">Comprometimento</div>
                   </div>
                 </div>
-                <div className="relative">
-                  <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-violet-500 to-indigo-500 opacity-20 blur-xl"></div>
-                  <div className="relative aspect-square rounded-2xl bg-zinc-900 overflow-hidden border border-zinc-800">
-                    <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-indigo-500/10"></div>
+                <Button
+                  variant="outline"
+                  className="border-gray-700 hover:bg-[#1A1A1A]"
+                >
+                  <Link to={linkContact} className="flex items-center gap-2">
+                    Entre em Contato <ChevronRight size={16} />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-                    {/* Código visual interativo */}
-                    <div className="absolute inset-0 p-6 flex flex-col">
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        <div className="ml-4 text-xs text-zinc-500">
-                          developer.js
+        {/* Projetos */}
+
+        {/* <section id="projetos" className="bg-[#0A0A0A] py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Projetos Recentes
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Conheça alguns dos trabalhos que desenvolvi e os resultados
+                alcançados para meus clientes.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((item) => (
+                <div
+                  key={item}
+                  className="group relative overflow-hidden rounded-xl"
+                >
+                  <div className="h-[300px] bg-[#1A1A1A] flex items-center justify-center">
+                    <img
+                      src={`/placeholder.svg?height=300&width=400`}
+                      alt={`Projeto ${item}`}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
+                    <h3 className="text-xl font-bold">Projeto {item}</h3>
+                    <p className="text-gray-300 mb-4">
+                      Landing page, desenvolvimento web, SEO
+                    </p>
+                    <Button
+                      size="sm"
+                      className="w-fit bg-[#8A5CF7] hover:bg-[#7349E5] text-white"
+                    >
+                      Ver detalhes
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <Button className="bg-[#8A5CF7] hover:bg-[#7349E5] text-white">
+                <Link to={linkContact} className="flex items-center gap-2">
+                  Quero um projeto assim <ChevronRight size={16} />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section> */}
+
+        {/* Clientes */}
+
+        {/* <section id="clientes" className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                Clientes e Parceiros
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Empresas que confiam no meu trabalho e na qualidade dos serviços
+                prestados.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+              {[1, 2, 3, 4, 5, 6].map((item) => (
+                <div
+                  key={item}
+                  className="h-24 bg-[#1A1A1A] rounded-lg flex items-center justify-center p-4"
+                >
+                  <img
+                    src={`/placeholder.svg?height=60&width=120`}
+                    alt={`Cliente ${item}`}
+                    width={120}
+                    height={60}
+                    className="max-h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-16 bg-[#1A1A1A] rounded-xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                    Depoimentos de Clientes
+                  </h3>
+                  <div className="space-y-6">
+                    <div className="bg-[#252525] p-6 rounded-lg">
+                      <p className="italic text-gray-300 mb-4">
+                        "A KW Consultoria transformou completamente nosso
+                        processo de vendas online. A landing page desenvolvida
+                        aumentou nossas conversões em mais de 200%."
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full bg-[#8A5CF7]/20"></div>
+                        <div>
+                          <div className="font-medium">Empresa ABC</div>
+                          <div className="text-sm text-gray-400">
+                            Diretor de Marketing
+                          </div>
                         </div>
                       </div>
-
-                      <div className="flex-1 overflow-hidden text-left font-mono text-xs sm:text-sm text-zinc-400 space-y-2">
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">01</span>
-                          <span className="text-violet-400">class</span>
-                          <span className="text-white mx-2">Developer</span>
-                          <span>&#123;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">02</span>
-                          <span className="ml-4 text-violet-400">
-                            constructor
-                          </span>
-                          <span className="text-zinc-300">()</span>
-                          <span className="ml-1">&#123;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">03</span>
-                          <span className="ml-8 text-zinc-300">this.</span>
-                          <span className="text-green-400">name</span>
-                          <span className="ml-1 text-zinc-300">=</span>
-                          <span className="ml-1 text-yellow-300">
-                            'Kaynan Wallen'
-                          </span>
-                          <span>;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">04</span>
-                          <span className="ml-8 text-zinc-300">this.</span>
-                          <span className="text-green-400">role</span>
-                          <span className="ml-1 text-zinc-300">=</span>
-                          <span className="ml-1 text-yellow-300">
-                            'Fullstack Developer'
-                          </span>
-                          <span>;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">05</span>
-                          <span className="ml-8 text-zinc-300">this.</span>
-                          <span className="text-green-400">skills</span>
-                          <span className="ml-1 text-zinc-300">=</span>
-                          <span className="ml-1">&#91;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">06</span>
-                          <span className="ml-12 text-yellow-300">
-                            'RemixJs'
-                          </span>
-                          <span>,</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">07</span>
-                          <span className="ml-12 text-yellow-300">'ReactJs'</span>
-                          <span>,</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">08</span>
-                          <span className="ml-12 text-yellow-300">
-                            'NextJs'
-                          </span>
-                          <span>,</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">09</span>
-                          <span className="ml-12 text-yellow-300">
-                            'NestJs'
-                          </span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">10</span>
-                          <span className="ml-8">&#93;;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">11</span>
-                          <span className="ml-4">&#125;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">12</span>
-                          <span className="ml-4 text-violet-400">
-                            createAmazingExperiences
-                          </span>
-                          <span className="text-zinc-300">()</span>
-                          <span className="ml-1">&#123;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">13</span>
-                          <span className="ml-8 text-violet-400">return</span>
-                          <span className="ml-1 text-yellow-300">
-                            'Inovação & Qualidade'
-                          </span>
-                          <span>;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">14</span>
-                          <span className="ml-4">&#125;</span>
-                        </div>
-                        <div className="flex">
-                          <span className="text-zinc-600 mr-4">15</span>
-                          <span>&#125;</span>
+                    </div>
+                    <div className="bg-[#252525] p-6 rounded-lg">
+                      <p className="italic text-gray-300 mb-4">
+                        "O sistema desenvolvido pela KW Consultoria automatizou
+                        processos que antes levavam dias para serem concluídos.
+                        Agora conseguimos focar no que realmente importa."
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full bg-[#8A5CF7]/20"></div>
+                        <div>
+                          <div className="font-medium">Startup XYZ</div>
+                          <div className="text-sm text-gray-400">CEO</div>
                         </div>
                       </div>
-
-                      {/* Cursor piscando */}
-                      <div className="h-4 w-2 bg-violet-400 animate-pulse mt-2"></div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </section>
-
-          {/* About Section */}
-          <section id="about" className="py-24 bg-zinc-900/50">
-            <div className="container mx-auto px-4">
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
-                    Sobre
-                  </span>{" "}
-                  mim
-                </h2>
-
-                <div className="space-y-6 text-zinc-300">
-                  <p>
-                    Atuando como Desenvolvedor Full Stack desde 2022, tenho
-                    experiência na criação de aplicações web escaláveis,
-                    sistemas robustos e landing pages otimizadas para ajudar
-                    empresas a aumentar sua presença digital. Minha
-                    especialidade é desenvolver soluções eficientes utilizando
-                    React.js, Node.js e TypeScript, criando interfaces modernas
-                    e APIs performáticas. Trabalho com arquitetura de software,
-                    bancos de dados SQL e NoSQL, além de ferramentas como
-                    Drizzle ORM, Remix, Next.js e Tailwind CSS.
-                  </p>
-                  <p>
-                    Além do desenvolvimento técnico, ajudo empresas a aumentar
-                    sua notoriedade digital criando landing pages de alta
-                    conversão, otimizadas para SEO e performance, garantindo
-                    mais leads e visibilidade no mercado. em busca de novos
-                    desafios e aprendizado contínuo, acompanhando tendências e
-                    novas tecnologias para entregar soluções inovadoras e
-                    escaláveis.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Projects Section */}
-          <ProjectsSection />
-
-          {/* Skills Section */}
-          <section id="skills" className="py-24">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
-                  Habilidades
-                </span>{" "}
-                & Tecnologias
-              </h2>
-
-              <Skills />
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
-                <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-violet-500/50 transition-colors group">
-                  <div className="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
-                    <Globe className="h-6 w-6 text-violet-400" />
-                  </div>
-                  <h3 className="text-xl font-medium mb-2">Frontend</h3>
-                  <p className="text-zinc-400 text-sm">
-                    React, Next.js, TypeScript, Tailwind CSS, e outras
-                    tecnologias modernas para criar interfaces responsivas.
-                  </p>
-                </div>
-
-                <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-violet-500/50 transition-colors group">
-                  <div className="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
-                    <Database className="h-6 w-6 text-violet-400" />
-                  </div>
-                  <h3 className="text-xl font-medium mb-2">Backend</h3>
-                  <p className="text-zinc-400 text-sm">
-                    Node.js, Express, MongoDB, PostgreSQL, e outras tecnologias
-                    para criar APIs robustas e escaláveis.
-                  </p>
-                </div>
-
-                <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-violet-500/50 transition-colors group">
-                  <div className="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
-                    <Code className="h-6 w-6 text-violet-400" />
-                  </div>
-                  <h3 className="text-xl font-medium mb-2">Desenvolvimento</h3>
-                  <p className="text-zinc-400 text-sm">
-                    Git, Docker, CI/CD, e outras ferramentas para garantir um
-                    fluxo de desenvolvimento eficiente.
-                  </p>
-                </div>
-
-                <div className="p-6 rounded-xl bg-zinc-900/50 border border-zinc-800 hover:border-violet-500/50 transition-colors group">
-                  <div className="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
-                    <Layers className="h-6 w-6 text-violet-400" />
-                  </div>
-                  <h3 className="text-xl font-medium mb-2">Design</h3>
-                  <p className="text-zinc-400 text-sm">
-                    UI/UX, Figma, e outras ferramentas para criar interfaces
-                    intuitivas e atraentes.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="education" className="py-2">
-            <div className="container mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">
-                  Formações
-                </span>
-              </h2>
-
-              <div className="space-y-6">
-                <div className="relative">
-
-                  <div className="gap-6">
-                    <Card>
-                      <CardHeader>
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                          <CardTitle>
-                            Análise e Desenvolvimento de Sistemas
-                          </CardTitle>
-                          <Badge variant="outline" className="w-fit text-muted-foreground border-zinc-500/20">
-                            2023 - 2025
-                          </Badge>
+                <div className="bg-[#252525] p-6 rounded-lg">
+                  <h3 className="text-xl font-bold mb-4">
+                    Empresas que atendo atualmente
+                  </h3>
+                  <ul className="space-y-4">
+                    {[
+                      "Empresa A",
+                      "Startup B",
+                      "Agência C",
+                      "E-commerce D",
+                      "Consultoria E",
+                    ].map((empresa, index) => (
+                      <li key={index} className="flex items-center gap-3">
+                        <div className="h-8 w-8 rounded-full bg-[#8A5CF7]/20 flex items-center justify-center">
+                          <Users size={16} className="text-[#8A5CF7]" />
                         </div>
-                        <CardDescription>
-                          Universidade São Francisco
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-zinc-400 text-sm" >
-                          Cursando Análise e Desenvolvimento de Sistemas, com
-                          foco em desenvolvimento de software, banco de dados, e
-                          metodologias ágeis. Previsão de conclusão em julho de
-                          2025.
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-
-                <div className="relative">
-
-                  <div className="gap-6">
-                    <Card>
-                      <CardHeader>
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                          <CardTitle>
-                            Técnico em Desenvolvimento de Sistemas
-                          </CardTitle>
-                          <Badge variant="outline" className="w-fit text-muted-foreground border-zinc-500/20">
-                            2022 - 2023
-                          </Badge>
-                        </div>
-                        <CardDescription>
-                          ETEC Rosa Perrone Scavone
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-zinc-400 text-sm">
-                          Formação técnica em Desenvolvimento de Sistemas, com
-                          aprendizado em programação, desenvolvimento web,
-                          mobile e desktop. Concluído em julho de 2023.
-                        </p>
-                      </CardContent>
-                    </Card>
+                        <span>{empresa}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6">
+                    <Button className="w-full bg-[#8A5CF7] hover:bg-[#7349E5] text-white">
+                      <Link
+                        to={linkContact}
+                        className="flex items-center justify-center gap-2"
+                      >
+                        Seja o próximo <ChevronRight size={16} />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-        </main>
+          </div>
+        </section> */}
 
-        <footer className="py-12 border-t border-zinc-800/50">
+        {/* CTA */}
+        <section className="py-20 bg-[#8A5CF7]">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Pronto para transformar seu negócio?
+            </h2>
+            <p className="text-white/80 max-w-2xl mx-auto mb-8">
+              Entre em contato agora mesmo e vamos discutir como posso ajudar a
+              impulsionar seu projeto com soluções personalizadas.
+            </p>
+            <Button
+              size="lg"
+              className="bg-white text-[#8A5CF7] hover:bg-gray-100"
+            >
+              <Link to={linkContact} className="flex items-center gap-2">
+                Fale Comigo Agora <ChevronRight size={16} />
+              </Link>
+            </Button>
+          </div>
+        </section>
+
+        {/* Contato */}
+        <section id="contato" className="py-20">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="mb-6 md:mb-0">
-                <a href="/" className="text-xl font-bold tracking-tighter">
-                  KW<span className="text-violet-500">.</span>
-                </a>
-                <p className="text-zinc-400 text-sm mt-2">
-                  © {new Date().getFullYear()} Kaynan Wallen. Todos os direitos
-                  reservados.
+            <div className="grid md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                  Vamos Conversar
+                </h2>
+                <p className="text-gray-400 mb-8">
+                  Preencha o formulário ao lado ou entre em contato diretamente
+                  pelos canais abaixo.
                 </p>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="h-10 w-10 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-[#8A5CF7]"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Telefone</h3>
+                      <p className="text-gray-400">(11) 96905-7943</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-10 w-10 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-[#8A5CF7]"
+                      >
+                        <rect width="20" height="16" x="2" y="4" rx="2" />
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Email</h3>
+                      <p className="text-gray-400">contato.kwconsultoria@gmail.com</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="h-10 w-10 rounded-lg bg-[#8A5CF7]/20 flex items-center justify-center shrink-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-[#8A5CF7]"
+                      >
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1">Endereço</h3>
+                      <p className="text-gray-400">São Paulo, SP - Brasil</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <h3 className="font-medium mb-4">Redes Sociais</h3>
+                  <div className="flex gap-4">
+                  <Link
+                          to="https://www.linkedin.com/company/kw-consultoria-tech/"
+                          className="h-10 w-10 rounded-full bg-[#1A1A1A] flex items-center justify-center hover:bg-[#8A5CF7] transition-colors"
+                        >
+                          <span className="sr-only">Linkedin</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect width="4" height="12" x="2" y="9" />
+                            <circle cx="4" cy="4" r="2" />
+                          </svg>
+                        </Link>
+                  </div>
+                </div>
               </div>
 
-              <div className="flex gap-6">
-                <a
-                  href="https://github.com/KaynanWallen"
-                  className="text-zinc-400 hover:text-violet-400 transition-colors"
-                >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                      clipRule="evenodd"
+              <div className="bg-[#1A1A1A] p-6 md:p-8 rounded-xl">
+                <h3 className="text-2xl font-bold mb-6">Envie uma mensagem</h3>
+                <form className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="nome" className="text-sm font-medium">
+                        Nome
+                      </label>
+                      <input
+                        type="text"
+                        id="nome"
+                        className="w-full px-4 py-3 bg-[#252525] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A5CF7]"
+                        placeholder="Seu nome"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm font-medium">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        className="w-full px-4 py-3 bg-[#252525] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A5CF7]"
+                        placeholder="seu@email.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="assunto" className="text-sm font-medium">
+                      Assunto
+                    </label>
+                    <input
+                      type="text"
+                      id="assunto"
+                      className="w-full px-4 py-3 bg-[#252525] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A5CF7]"
+                      placeholder="Assunto da mensagem"
                     />
-                  </svg>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/kaynan-wallen-9b542024a/"
-                  className="text-zinc-400 hover:text-violet-400 transition-colors"
+                  </div>
+
+                  <div className="space-y-2">
+                    <label htmlFor="mensagem" className="text-sm font-medium">
+                      Mensagem
+                    </label>
+                    <textarea
+                      id="mensagem"
+                      rows={5}
+                      className="w-full px-4 py-3 bg-[#252525] border border-[#333] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8A5CF7]"
+                      placeholder="Descreva seu projeto ou dúvida..."
+                    ></textarea>
+                  </div>
+
+                  <div className="pt-2">
+                    <Button className="w-full bg-[#8A5CF7] hover:bg-[#7349E5] text-white py-6">
+                      Enviar Mensagem{" "}
+                      <MessageSquare size={16} className="ml-2" />
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-[#0A0A0A] py-12 border-t border-[#222]">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-4 gap-8">
+              <div className="md:col-span-2">
+                <Link to="/" className="text-2xl font-bold inline-block mb-4">
+                  KW<span className="text-[#8A5CF7]">.</span>
+                </Link>
+                <p className="text-gray-400 mb-6 max-w-md">
+                  Soluções personalizadas em desenvolvimento de software,
+                  landing pages, sistemas e consultorias para impulsionar seu
+                  negócio.
+                </p>
+                <Button
+                  variant="outline"
+                  className="border-gray-700 hover:bg-[#1A1A1A]"
                 >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm-1 15h-2v-6h2v6zm-1-7a1 1 0 100-2 1 1 0 000 2zm7 7h-2v-4c0-.6-.4-1-1-1s-1 .4-1 1v4h-2v-6h2v1.1c.4-.6 1.2-1.1 2-1.1 1.7 0 3 1.3 3 3v3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
+                  <Link to={linkContact} className="flex items-center gap-2">
+                    Contate-me <ChevronRight size={16} />
+                  </Link>
+                </Button>
+              </div>
+
+              <div>
+                <h3 className="font-bold mb-4">Links Rápidos</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      to="/"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#sobre"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Sobre
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#servicos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Serviços
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#projetos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Projetos
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#clientes"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Clientes
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#contato"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Contato
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-bold mb-4">Serviços</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      to="#servicos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Landing Pages
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#servicos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Desenvolvimento de Sistemas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#servicos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Manutenção de Sistemas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#servicos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      Consultorias
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="#servicos"
+                      className="text-gray-400 hover:text-[#8A5CF7] transition-colors"
+                    >
+                      SEO
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border-t border-[#222] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                &copy; {new Date().getFullYear()} KW Consultoria. Todos os
+                direitos reservados.
+              </p>
+              <div className="flex gap-4 mt-4 md:mt-0">
+                <Link
+                  to="#"
+                  className="text-gray-400 hover:text-[#8A5CF7] text-sm"
+                >
+                  Termos de Uso
+                </Link>
+                <Link
+                  to="#"
+                  className="text-gray-400 hover:text-[#8A5CF7] text-sm"
+                >
+                  Política de Privacidade
+                </Link>
               </div>
             </div>
           </div>

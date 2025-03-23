@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "kw-consultoria",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -19,8 +19,8 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.5.0",
     "isbot": "^4.1.0",
+    "kw-consultoria": "file:",
     "lucide-react": "^0.483.0",
-    "portfolio": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remix-flat-routes": "^0.8.5",
